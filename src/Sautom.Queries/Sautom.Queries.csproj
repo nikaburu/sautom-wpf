@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD18B6DC-D60B-4359-B21F-D79DD96545D8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sautom.Queries</RootNamespace>
+    <AssemblyName>Sautom.Queries</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IAuthorizationFinder.cs" />
+    <Compile Include="IReportFinder.cs" />
+    <Compile Include="ICommonFinder.cs" />
+    <Compile Include="IFileFinder.cs" />
+    <Compile Include="IClientFinder.cs" />
+    <Compile Include="IProposalFinder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadOptimizedDto\AunthorizationCredentialsDto.cs" />
+    <Compile Include="ReadOptimizedDto\ClientEditDto.cs" />
+    <Compile Include="ReadOptimizedDto\ClientItemDto.cs" />
+    <Compile Include="ReadOptimizedDto\ClientViewDto.cs" />
+    <Compile Include="ReadOptimizedDto\CityItemDto.cs" />
+    <Compile Include="ReadOptimizedDto\AirlineTicketEditDto.cs" />
+    <Compile Include="ReadOptimizedDto\AirlineTicketViewDto.cs" />
+    <Compile Include="ReadOptimizedDto\ContractViewDto.cs" />
+    <Compile Include="ReadOptimizedDto\ContractEditDto.cs" />
+    <Compile Include="ReadOptimizedDto\ManagerCommentItemDto.cs" />
+    <Compile Include="ReadOptimizedDto\EventNortification.cs" />
+    <Compile Include="ReadOptimizedDto\FileDownloadDto.cs" />
+    <Compile Include="ReadOptimizedDto\RateItemDto.cs" />
+    <Compile Include="ReadOptimizedDto\CountryWitCitiesDto.cs" />
+    <Compile Include="ReadOptimizedDto\CountryEditDto.cs" />
+    <Compile Include="ReadOptimizedDto\CountryItemDto.cs" />
+    <Compile Include="ReadOptimizedDto\CreateOrderInfoDto.cs" />
+    <Compile Include="ReadOptimizedDto\GuidStringDto.cs" />
+    <Compile Include="ReadOptimizedDto\EmbassyDocumentItemDto.cs" />
+    <Compile Include="ReadOptimizedDto\ManagerDto.cs" />
+    <Compile Include="ReadOptimizedDto\OrderItemDto.cs" />
+    <Compile Include="ReadOptimizedDto\ProposalDto.cs" />
+    <Compile Include="ReadOptimizedDto\ProposalEditDto.cs" />
+    <Compile Include="ReportOptimizedDto\OrderReportDto.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

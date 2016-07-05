@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Sautom.Communication.Services.CommandService" CodeBehind="CommandService.svc.cs" %>

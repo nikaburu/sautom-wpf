@@ -1,0 +1,192 @@
+﻿<#@ Template Language="C#" Hostspecific="True" #>
+<#@ Output Extension=".cs"  #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Reflection" #>
+<#@ Import Namespace="System.IO" #>
+<#@ Import Namespace="System.Linq" #>
+<#@ Import Namespace="System.Linq.Expressions" #>
+<#
+var entitiesNamespace = "Sautom.Services.Dto";
+var entitiesAssembly = @"..\..\Sautom.Services\bin\Debug\Sautom.Services.dll";
+
+Func<PropertyInfo, bool> scalarProperties = p => p.PropertyType == typeof(byte[]) || !p.PropertyType.GetInterfaces().Any(t => t == typeof(System.Collections.IList) || t == typeof(System.Collections.ICollection));
+Func<PropertyInfo, bool> collectionProperties = p => !scalarProperties.Invoke(p);
+
+//Use another expression here to filter the entities
+var typesToRegister = from t in LoadProjectAssembly(entitiesAssembly).GetExportedTypes()
+                      where t.Namespace == entitiesNamespace && t.IsClass && !t.IsAbstract
+					  select t;
+
+#>
+
+
+
+<#GenerateUsings(typesToRegister);#>
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+
+namespace Sautom.Server.TransportDto //<#=typesToRegister.ToList().Count()#>
+{
+<#
+// We filter out non-classes and abstract classes just in case the 
+// user made a mistake in the query, so as not to generate code that 
+// doesn't have a chance to compile.
+foreach (var type in typesToRegister.ToList())
+{#>
+    
+    [DataContract]
+    public partial class <#= GetDTOClassName(type.Name) #> <#if(type.BaseType != typeof(object)) { #> : <#=type.BaseType.FullName#><#}#>
+    
+    {
+    <# 
+          foreach (var property in type.GetProperties())
+          {
+
+              if (ExportProperty(property) && collectionProperties(property))
+            {
+            #>
+        
+        [DataMember]    
+        public IList<<#= GetDTOClassName(property.PropertyType.GetGenericArguments()[0].Name)#>> <#= property.Name#>
+        {   
+            get;
+            internal set;
+        }
+            <#    
+            }
+            else if (ExportProperty(property) && IsDTO(typesToRegister, property.PropertyType)) 
+            {
+            #>
+        
+        [DataMember]
+        public <#= GetDTOClassName(property.PropertyType.Name) #> <#= property.Name #>
+        {
+            get; set;
+        }
+        <#}
+			else if (ExportProperty(property) && property.PropertyType.Name.Split('`')[0] == "Nullable") 
+				{
+				#>
+        
+			[DataMember]
+			public <#=property.PropertyType.GetGenericArguments()[0].Name#>? <#= property.Name #>
+			{
+				get; set;
+			}
+			<#}
+				else if(ExportProperty(property))
+				{
+				#>
+        
+			[DataMember]
+			public <#= property.PropertyType.FullName #> <#= property.Name #>
+			{
+				get; set;
+			}
+			<#}}#>
+	}
+    <#
+}
+#>    
+}
+<# Cleanup(); #>
+<#+// 
+string outputDir;
+
+private string GetDataContractNamespace(string entitiesNamespace)
+{
+    return string.Format("urn:{0}", entitiesNamespace.Replace(".", "/"));
+}
+
+private string GetDTOClassName(string typeName)
+{
+	if (typeName != "Guid")
+	{
+		return typeName + "Input";
+	}
+
+	return typeName;
+}
+
+private bool IsDTO(IEnumerable<Type> exportedTypes, Type type)
+{
+    return exportedTypes.Any(e => e.FullName == type.FullName);
+}
+
+private bool ExportProperty(PropertyInfo p)
+{
+    return true;
+}
+
+private string ConvertToCamelCase(string name)
+{
+    return GetDTOClassName(name);//name.Substring(0, 1).ToLower() + name.Substring(1);
+}
+
+private void GenerateUsings(IEnumerable<Type> services)
+{
+	// Generate nice code with short type names, by adding the 
+	// appropriate using statements as necessary for 
+	// service types and constructor parameters.
+	var namespaces = from t in services
+					let c = t.GetConstructors(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+										 .OrderByDescending(c => c.GetParameters().Length).FirstOrDefault()
+					where c != null
+					from p in c.GetParameters()
+					select p.ParameterType.Namespace;
+
+   // Add services namespaces too.
+   namespaces = namespaces.Concat(services.Select(s => s.Namespace));
+
+   // As well as the interfaces if any
+   namespaces = namespaces.Concat(from s in services
+								  from t in s.GetInterfaces()
+								  select t.Namespace);
+
+   foreach (var ns in namespaces.Distinct().OrderBy(s => s))
+   {
+	   WriteLine("using " + ns + ";");
+   }
+}
+
+private Assembly LoadProjectAssembly(string assemblyFile)
+{
+	if (!Path.IsPathRooted(assemblyFile))
+	   assemblyFile = Path.Combine(Path.GetDirectoryName(this.Host.TemplateFile), assemblyFile);
+
+   outputDir = Path.GetDirectoryName(assemblyFile);
+
+   if (!File.Exists(assemblyFile))
+	   throw new ArgumentException(String.Format("Project assembly file could not be located at {0}.", assemblyFile));
+
+   AppDomain.CurrentDomain.AssemblyResolve += ResolveAssembly;
+
+   return Assembly.Load(File.ReadAllBytes(assemblyFile));
+}
+
+private void Cleanup()
+{
+	AppDomain.CurrentDomain.AssemblyResolve -= ResolveAssembly;
+}
+
+private Assembly ResolveAssembly(object sender, ResolveEventArgs args)
+{
+	var dependency = Path.Combine(outputDir, args.Name.Substring(0, args.Name.IndexOf(',')) + ".dll");
+
+   if (File.Exists(dependency))
+	   return Assembly.Load(File.ReadAllBytes(dependency));
+
+   return null;
+}
+
+List<PropertyInfo> excludedProperties = new List<PropertyInfo>();
+
+private void ExcludeProperty<TEntity>(Expression<Func<TEntity, object>> propertyExpression)
+{
+    excludedProperties.Add((PropertyInfo)((MemberExpression)propertyExpression.Body).Member);
+}
+
+#>

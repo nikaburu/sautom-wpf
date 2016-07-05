@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+
+<ArrayOfSystemUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SystemUser>
+    <FullName>Admin Admin</FullName>
+    <Name>Admin</Name>
+    <Password>1234</Password>
+    <Roles>
+      <string>Administrator</string>
+      <string>Manager</string>
+    </Roles>
+  </SystemUser>
+  <SystemUser>
+    <FullName>Manager Manager</FullName>
+    <Name>Manager</Name>
+    <Password>1234</Password>
+    <Roles>
+      <string>Manager</string>
+    </Roles>
+  </SystemUser>
+</ArrayOfSystemUser>

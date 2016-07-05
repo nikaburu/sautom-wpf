@@ -1,0 +1,95 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Reflection" #>
+<#@ Import Namespace="System.IO" #>
+<#@ Import Namespace="System.Linq" #>
+<#@ Import Namespace="System.Linq.Expressions" #>
+<#
+var entitiesNamespace = "Sautom.Domain.Entities";
+var entitiesAssembly = @"..\..\Sautom.Domain\bin\Debug\Sautom.Domain.dll";
+
+var typesToRegister = GetEntitiesTypes(from t in LoadProjectAssembly(entitiesAssembly).GetExportedTypes()
+                      where t.Namespace == entitiesNamespace && t.IsClass && !t.IsAbstract
+					  select t);
+
+List<string> entityNames = typesToRegister.Select(rec => rec.Name).ToList();
+
+#>
+<#GenerateUsings(typesToRegister);#>
+
+namespace Sautom.Services.Repositories
+{
+	<#foreach (var entityName in entityNames)
+	{#>
+		public partial interface I<#=entityName#>Repository : IRepository<<#=entityName#>>
+		{
+		}
+		
+	<#}#>
+}
+<# Cleanup(); #>
+<#+
+private List<Type> GetEntitiesTypes(IEnumerable<Type> types)
+{
+	return types.Where(rec => rec.GetProperties().Any(pp => pp.Name == "Id")).ToList();
+}
+
+string outputDir;
+private Assembly LoadProjectAssembly(string assemblyFile)
+{
+	if (!Path.IsPathRooted(assemblyFile))
+	   assemblyFile = Path.Combine(Path.GetDirectoryName(this.Host.TemplateFile), assemblyFile);
+
+   outputDir = Path.GetDirectoryName(assemblyFile);
+
+   if (!File.Exists(assemblyFile))
+	   throw new ArgumentException(String.Format("Project assembly file could not be located at {0}.", assemblyFile));
+
+   AppDomain.CurrentDomain.AssemblyResolve += ResolveAssembly;
+
+   return Assembly.Load(File.ReadAllBytes(assemblyFile));
+}
+
+private Assembly ResolveAssembly(object sender, ResolveEventArgs args)
+{
+	var dependency = Path.Combine(outputDir, args.Name.Substring(0, args.Name.IndexOf(',')) + ".dll");
+
+   if (File.Exists(dependency))
+	   return Assembly.Load(File.ReadAllBytes(dependency));
+
+   return null;
+}
+
+private void Cleanup()
+{
+	AppDomain.CurrentDomain.AssemblyResolve -= ResolveAssembly;
+}
+
+private void GenerateUsings(IEnumerable<Type> services)
+{
+	// Generate nice code with short type names, by adding the 
+	// appropriate using statements as necessary for 
+	// service types and constructor parameters.
+	var namespaces = from t in services
+					let c = t.GetConstructors(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+										 .OrderByDescending(c => c.GetParameters().Length).FirstOrDefault()
+					where c != null
+					from p in c.GetParameters()
+					select p.ParameterType.Namespace;
+
+   // Add services namespaces too.
+   namespaces = namespaces.Concat(services.Select(s => s.Namespace));
+
+   // As well as the interfaces if any
+   namespaces = namespaces.Concat(from s in services
+								  from t in s.GetInterfaces()
+								  select t.Namespace);
+
+   foreach (var ns in namespaces.Distinct().OrderBy(s => s))
+   {
+	   WriteLine("using " + ns + ";");
+   }
+}
+#>
