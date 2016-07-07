@@ -97,12 +97,36 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RegionProvider.cs" />
-    <Compile Include="Service References\AuthorizationService\Reference.cs" />
-    <Compile Include="Service References\CommandService\Reference.cs" />
-    <Compile Include="Service References\CommonService\Reference.cs" />
-    <Compile Include="Service References\FileService\Reference.cs" />
-    <Compile Include="Service References\QueriesService\Reference.cs" />
-    <Compile Include="Service References\ReportService\Reference.cs" />
+    <Compile Include="Service References\AuthorizationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CommandService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CommonService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\FileService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\QueriesService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ReportService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Services\AuthorizationService.cs" />
     <Compile Include="Services\AuthorizationServiceAdapter.cs" />
     <Compile Include="Services\BaseServiceAdapter.cs" />
@@ -116,13 +140,244 @@
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Service References\AuthorizationService\AuthorizationService.wsdl" />
+    <None Include="Service References\AuthorizationService\AuthorizationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorizationService\AuthorizationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorizationService\AuthorizationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorizationService\AuthorizationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AuthorizationService\Sautom.Client.Comunication.AuthorizationService.AunthorizationCredentialsDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CommandService\CommandService.wsdl" />
+    <None Include="Service References\CommandService\CommandService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommandService\CommandService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommandService\CommandService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommandService\CommandService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommonService\CommonService.wsdl" />
+    <None Include="Service References\CommonService\CommonService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommonService\CommonService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommonService\CommonService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommonService\CommonService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CommonService\Sautom.Client.Comunication.CommonService.EventNortificationOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FileService\FileService.wsdl" />
+    <None Include="Service References\FileService\FileService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FileService\FileService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FileService\FileService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FileService\Sautom.Client.Comunication.FileService.FileDownloadDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FileService\Sautom.Client.Comunication.FileService.GuidStringDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\QueriesService.wsdl" />
+    <None Include="Service References\QueriesService\QueriesService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QueriesService\QueriesService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QueriesService\QueriesService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QueriesService\QueriesService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.AirlineTicketEditDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.AirlineTicketViewDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.ClientEditDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.ClientItemDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.ClientViewDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.ContractEditDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.ContractViewDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.CountryEditDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.CountryItemDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.CountryWitCitiesDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.CreateOrderInfoDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.ProposalDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.ProposalEditDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\QueriesService\Sautom.Client.Comunication.QueriesService.RateItemDtoOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReportService\ReportService.wsdl" />
+    <None Include="Service References\ReportService\ReportService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportService\ReportService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportService\ReportService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReportService\Sautom.Client.Comunication.ReportService.OrderReportDtoReport.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AuthorizationService\" />
+    <WCFMetadataStorage Include="Service References\CommandService\" />
+    <WCFMetadataStorage Include="Service References\CommonService\" />
+    <WCFMetadataStorage Include="Service References\FileService\" />
+    <WCFMetadataStorage Include="Service References\QueriesService\" />
+    <WCFMetadataStorage Include="Service References\ReportService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReportService\ReportService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReportService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReportService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReportService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QueriesService\QueriesService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QueriesService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QueriesService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\QueriesService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthorizationService\AuthorizationService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthorizationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthorizationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthorizationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CommandService\CommandService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CommandService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CommandService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CommandService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CommonService\CommonService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CommonService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CommonService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CommonService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FileService\FileService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FileService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FileService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FileService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

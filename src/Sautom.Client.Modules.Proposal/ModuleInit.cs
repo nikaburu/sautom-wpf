@@ -27,16 +27,6 @@ namespace Sautom.Client.Modules.Proposal
 
 	    public void Initialize()
         {
-            _container.RegisterType<object, ProposalIndex>(PathProvider.ProposalIndex);
-            _container.RegisterType<object, ProposalEdit>(PathProvider.ProposalEdit);
-            _container.RegisterType<object, CountriesList>(PathProvider.CountriesList);
-            _container.RegisterType<object, CountryEdit>(PathProvider.CountryEdit);
-            _container.RegisterType<object, ModuleTaskButton>(PathProvider.ProposalTaskButton); 
-            _container.RegisterType<object, RateManagement>(PathProvider.RateManagement);
-
-            _regionManager.RequestNavigate(RegionProvider.TaskButtonRegion, PathProvider.ProposalTaskButton);
-			//_regionManager.RequestNavigate(RegionProvider.MainRegion, PathProvider.ProposalIndex);
-
 			MapperConfiguration config = new MapperConfiguration(cfg =>
 			{
 				cfg.CreateMap<ProposalEditViewModel, ProposalEditDtoInput>()
@@ -53,9 +43,19 @@ namespace Sautom.Client.Modules.Proposal
 				cfg.CreateMap<ProposalDtoOutput, ProposalModel>()
 				.ForMember(d => d.ProposalType, o => o.ResolveUsing(v => !v.IsGroupType ? Resources.Label_ProposalIndividualType : Resources.Label_ProposalGroupType));
 			});
-	        _container.RegisterInstance("Sautom.Client.Modules.Proposal.Mapper", config.CreateMapper());
-        }
+			_container.RegisterInstance("Sautom.Client.Modules.Proposal.Mapper", config.CreateMapper());
 
-	    #endregion
-    }
+			_container.RegisterType<object, ProposalIndex>(PathProvider.ProposalIndex);
+            _container.RegisterType<object, ProposalEdit>(PathProvider.ProposalEdit);
+            _container.RegisterType<object, CountriesList>(PathProvider.CountriesList);
+            _container.RegisterType<object, CountryEdit>(PathProvider.CountryEdit);
+            _container.RegisterType<object, ModuleTaskButton>(PathProvider.ProposalTaskButton); 
+            _container.RegisterType<object, RateManagement>(PathProvider.RateManagement);
+
+            _regionManager.RequestNavigate(RegionProvider.TaskButtonRegion, PathProvider.ProposalTaskButton);
+			//_regionManager.RequestNavigate(RegionProvider.MainRegion, PathProvider.ProposalIndex);
+		}
+
+		#endregion
+	}
 }

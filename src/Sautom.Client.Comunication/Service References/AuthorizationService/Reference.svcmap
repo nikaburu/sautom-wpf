@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="73097390-dd80-4e75-9e60-72f923942c3d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/SautomServices/AuthorizationService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AuthorizationService.xsd" MetadataType="Schema" ID="cad54d96-e411-4ed0-bbfb-a95a552019bb" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/AuthorizationService?xsd=xsd2" />
+    <MetadataFile FileName="AuthorizationService.disco" MetadataType="Disco" ID="590a527d-c0c7-4a82-8305-124acb752dcb" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/AuthorizationService?disco" />
+    <MetadataFile FileName="AuthorizationService1.xsd" MetadataType="Schema" ID="58f6bede-d09d-472d-98ec-337781d8224e" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/AuthorizationService?xsd=xsd0" />
+    <MetadataFile FileName="AuthorizationService2.xsd" MetadataType="Schema" ID="08e6aa1e-7464-41a0-95af-be5fe12b7315" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/AuthorizationService?xsd=xsd1" />
+    <MetadataFile FileName="AuthorizationService.wsdl" MetadataType="Wsdl" ID="5d35781e-6c85-4407-98b6-a53a11cb98c4" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/AuthorizationService?wsdl" />
+    <MetadataFile FileName="AuthorizationService3.xsd" MetadataType="Schema" ID="e1c3697f-46da-4c11-8ad5-c5b862782377" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/AuthorizationService?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

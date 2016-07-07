@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CommandService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_ICommandService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:BasicAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8000/SautomServices/CommandService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8000/SautomServices/CommandService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8000/SautomServices/CommandService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Sautom.Server.TransportDto" />
+      <xsd:import schemaLocation="http://localhost:8000/SautomServices/CommandService?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICommandService_ProposalEditOrAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProposalEditOrAdd" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_ProposalEditOrAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProposalEditOrAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_AddOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_AddOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_UpdateOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_UpdateOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_EditOrAddClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrAddClient" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_EditOrAddClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrAddClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_EditOrAddCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrAddCountry" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_EditOrAddCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrAddCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_EditOrAddRate_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrAddRate" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_EditOrAddRate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrAddRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_BulkUpdateOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:BulkUpdateOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_BulkUpdateOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BulkUpdateOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_EditOrAddContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrAddContract" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_EditOrAddContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrAddContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_EditOrAddAirlineTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrAddAirlineTicket" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_EditOrAddAirlineTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrAddAirlineTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_AddClientComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddClientComment" />
+  </wsdl:message>
+  <wsdl:message name="ICommandService_AddClientComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddClientCommentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICommandService">
+    <wsdl:operation name="ProposalEditOrAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommandService/ProposalEditOrAdd" message="tns:ICommandService_ProposalEditOrAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommandService/ProposalEditOrAddResponse" message="tns:ICommandService_ProposalEditOrAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommandService/AddOrder" message="tns:ICommandService_AddOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommandService/AddOrderResponse" message="tns:ICommandService_AddOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommandService/UpdateOrder" message="tns:ICommandService_UpdateOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommandService/UpdateOrderResponse" message="tns:ICommandService_UpdateOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditOrAddClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommandService/EditOrAddClient" message="tns:ICommandService_EditOrAddClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommandService/EditOrAddClientResponse" message="tns:ICommandService_EditOrAddClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditOrAddCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommandService/EditOrAddCountry" message="tns:ICommandService_EditOrAddCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommandService/EditOrAddCountryResponse" message="tns:ICommandService_EditOrAddCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditOrAddRate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommandService/EditOrAddRate" message="tns:ICommandService_EditOrAddRate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommandService/EditOrAddRateResponse" message="tns:ICommandService_EditOrAddRate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BulkUpdateOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommandService/BulkUpdateOrders" message="tns:ICommandService_BulkUpdateOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommandService/BulkUpdateOrdersResponse" message="tns:ICommandService_BulkUpdateOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditOrAddContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommandService/EditOrAddContract" message="tns:ICommandService_EditOrAddContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommandService/EditOrAddContractResponse" message="tns:ICommandService_EditOrAddContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditOrAddAirlineTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommandService/EditOrAddAirlineTicket" message="tns:ICommandService_EditOrAddAirlineTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommandService/EditOrAddAirlineTicketResponse" message="tns:ICommandService_EditOrAddAirlineTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddClientComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICommandService/AddClientComment" message="tns:ICommandService_AddClientComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICommandService/AddClientCommentResponse" message="tns:ICommandService_AddClientComment_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICommandService" type="tns:ICommandService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_ICommandService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProposalEditOrAdd">
+      <soap:operation soapAction="http://tempuri.org/ICommandService/ProposalEditOrAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <soap:operation soapAction="http://tempuri.org/ICommandService/AddOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrder">
+      <soap:operation soapAction="http://tempuri.org/ICommandService/UpdateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditOrAddClient">
+      <soap:operation soapAction="http://tempuri.org/ICommandService/EditOrAddClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditOrAddCountry">
+      <soap:operation soapAction="http://tempuri.org/ICommandService/EditOrAddCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditOrAddRate">
+      <soap:operation soapAction="http://tempuri.org/ICommandService/EditOrAddRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BulkUpdateOrders">
+      <soap:operation soapAction="http://tempuri.org/ICommandService/BulkUpdateOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditOrAddContract">
+      <soap:operation soapAction="http://tempuri.org/ICommandService/EditOrAddContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditOrAddAirlineTicket">
+      <soap:operation soapAction="http://tempuri.org/ICommandService/EditOrAddAirlineTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddClientComment">
+      <soap:operation soapAction="http://tempuri.org/ICommandService/AddClientComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommandService">
+    <wsdl:port name="BasicHttpBinding_ICommandService" binding="tns:BasicHttpBinding_ICommandService">
+      <soap:address location="http://localhost:8000/SautomServices/CommandService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

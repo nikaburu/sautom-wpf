@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="535c4ad7-9c05-483d-a3f9-8243106fe5c2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/SautomServices/QueriesService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="QueriesService.xsd" MetadataType="Schema" ID="2992a149-21b3-4664-a2e7-1e4ec678b6b5" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/QueriesService?xsd=xsd1" />
+    <MetadataFile FileName="QueriesService.wsdl" MetadataType="Wsdl" ID="d2ea6672-551f-4539-848d-f87cf9770435" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/QueriesService?wsdl" />
+    <MetadataFile FileName="QueriesService1.xsd" MetadataType="Schema" ID="60a8cd6d-14f1-476a-9e45-5d28a931beea" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/QueriesService?xsd=xsd2" />
+    <MetadataFile FileName="QueriesService2.xsd" MetadataType="Schema" ID="66ef0111-d553-4592-9803-6b3839244b04" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/QueriesService?xsd=xsd0" />
+    <MetadataFile FileName="QueriesService.disco" MetadataType="Disco" ID="5adf5479-bca0-4355-b0d0-87bcbca0eae8" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/QueriesService?disco" />
+    <MetadataFile FileName="QueriesService3.xsd" MetadataType="Schema" ID="a288dd17-3f76-4114-b36d-792ebec37f1a" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/QueriesService?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

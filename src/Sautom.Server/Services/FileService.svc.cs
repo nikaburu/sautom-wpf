@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ServiceModel;
+using AutoMapper;
 using Sautom.Queries;
 using Sautom.Queries.ReadOptimizedDto;
 using Sautom.Server.Interfaces;
@@ -15,15 +16,17 @@ namespace Sautom.Server.Services
     {
 	    #region Constructors
 
-	    public FileService(IFileFinder fileFinder, Sautom.Services.FileService fileService, IClientFinder clientFinder)
+	    public FileService(IMapper mapper, IFileFinder fileFinder, Sautom.Services.FileService fileService, IClientFinder clientFinder)
         {
-            FileFinder = fileFinder;
+		    Mapper = mapper;
+		    FileFinder = fileFinder;
             FileServiceCommand = fileService;
             ClientFinder = clientFinder;
         }
 
 	    #endregion
 
+	    public IMapper Mapper { get; set; }
 	    public IFileFinder FileFinder { get; set; }
 	    public Sautom.Services.FileService FileServiceCommand { get; set; }
 	    public IClientFinder ClientFinder { get; set; }
@@ -36,7 +39,7 @@ namespace Sautom.Server.Services
 
 	    public ICollection<GuidStringDtoOutput> ClientFileList(Guid clientId)
         {
-            return AutoMapper.Mapper.Map<ICollection<GuidStringDtoOutput>>(FileFinder.ClientFileList(clientId));
+            return Mapper.Map<ICollection<GuidStringDtoOutput>>(FileFinder.ClientFileList(clientId));
         }
 
 	    public FileDownloadDtoOutput ClientFile(Guid fileId)
@@ -72,7 +75,7 @@ namespace Sautom.Server.Services
 
 	    public FileDownloadDtoOutput ClientContract(Guid clientId, string type)
         {
-            return AutoMapper.Mapper.Map<FileDownloadDtoOutput>(ClientFinder.ClientContract(clientId, type));
+            return Mapper.Map<FileDownloadDtoOutput>(ClientFinder.ClientContract(clientId, type));
         }
 
 	    #endregion

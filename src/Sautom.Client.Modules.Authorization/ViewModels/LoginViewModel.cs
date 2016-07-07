@@ -21,6 +21,9 @@ namespace Sautom.Client.Modules.Authorization.ViewModels
             _eventAggregator = eventAggregator;
             ProccessLoginCommand = new ProccessLoginCommand(moduleManager, moduleCatalog, authorizationService, _eventAggregator, this);
             ToChangePasswordCommand = new SimpleNavigateCommand(regionManager, RegionProvider.MainRegion, PathProvider.ChangePassword);
+
+		    UserName = "Pavlova";
+		    Password = "1234";
         }
 
 	    #endregion

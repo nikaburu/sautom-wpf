@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="QueriesService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IQueriesService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:BasicAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8000/SautomServices/QueriesService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8000/SautomServices/QueriesService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8000/SautomServices/QueriesService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Sautom.Server.TransportDto" />
+      <xsd:import schemaLocation="http://localhost:8000/SautomServices/QueriesService?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IQueriesService_CurrentUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentUserName" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_CurrentUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetAllClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClients" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetAllClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetClientForEdit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientForEdit" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetClientForEdit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientForEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetClientForView_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientForView" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetClientForView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientForViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetOrderCreationData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderCreationData" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetOrderCreationData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderCreationDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetOrderEditData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderEditData" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetOrderEditData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderEditDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_AirlineTicketForView_InputMessage">
+    <wsdl:part name="parameters" element="tns:AirlineTicketForView" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_AirlineTicketForView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AirlineTicketForViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_AirlineTicketForEdit_InputMessage">
+    <wsdl:part name="parameters" element="tns:AirlineTicketForEdit" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_AirlineTicketForEdit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AirlineTicketForEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_ContractForView_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContractForView" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_ContractForView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContractForViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_ContractForEdit_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContractForEdit" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_ContractForEdit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContractForEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetAllProposals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProposals" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetAllProposals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllProposalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetProposalForEdit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProposalForEdit" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetProposalForEdit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProposalForEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetAllCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountries" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetAllCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetCountryForEdit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryForEdit" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetCountryForEdit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryForEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetAllCountriesWithCities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountriesWithCities" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetAllCountriesWithCities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCountriesWithCitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetRatesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRatesList" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetRatesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRatesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetCourceNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCourceNames" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetCourceNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCourceNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetSchoolNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchoolNames" />
+  </wsdl:message>
+  <wsdl:message name="IQueriesService_GetSchoolNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchoolNamesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IQueriesService">
+    <wsdl:operation name="CurrentUserName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/CurrentUserName" message="tns:IQueriesService_CurrentUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/CurrentUserNameResponse" message="tns:IQueriesService_CurrentUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetAllClients" message="tns:IQueriesService_GetAllClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetAllClientsResponse" message="tns:IQueriesService_GetAllClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientForEdit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetClientForEdit" message="tns:IQueriesService_GetClientForEdit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetClientForEditResponse" message="tns:IQueriesService_GetClientForEdit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientForView">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetClientForView" message="tns:IQueriesService_GetClientForView_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetClientForViewResponse" message="tns:IQueriesService_GetClientForView_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderCreationData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetOrderCreationData" message="tns:IQueriesService_GetOrderCreationData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetOrderCreationDataResponse" message="tns:IQueriesService_GetOrderCreationData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderEditData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetOrderEditData" message="tns:IQueriesService_GetOrderEditData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetOrderEditDataResponse" message="tns:IQueriesService_GetOrderEditData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AirlineTicketForView">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/AirlineTicketForView" message="tns:IQueriesService_AirlineTicketForView_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/AirlineTicketForViewResponse" message="tns:IQueriesService_AirlineTicketForView_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AirlineTicketForEdit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/AirlineTicketForEdit" message="tns:IQueriesService_AirlineTicketForEdit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/AirlineTicketForEditResponse" message="tns:IQueriesService_AirlineTicketForEdit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContractForView">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/ContractForView" message="tns:IQueriesService_ContractForView_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/ContractForViewResponse" message="tns:IQueriesService_ContractForView_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContractForEdit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/ContractForEdit" message="tns:IQueriesService_ContractForEdit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/ContractForEditResponse" message="tns:IQueriesService_ContractForEdit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProposals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetAllProposals" message="tns:IQueriesService_GetAllProposals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetAllProposalsResponse" message="tns:IQueriesService_GetAllProposals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProposalForEdit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetProposalForEdit" message="tns:IQueriesService_GetProposalForEdit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetProposalForEditResponse" message="tns:IQueriesService_GetProposalForEdit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetAllCountries" message="tns:IQueriesService_GetAllCountries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetAllCountriesResponse" message="tns:IQueriesService_GetAllCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryForEdit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetCountryForEdit" message="tns:IQueriesService_GetCountryForEdit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetCountryForEditResponse" message="tns:IQueriesService_GetCountryForEdit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountriesWithCities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetAllCountriesWithCities" message="tns:IQueriesService_GetAllCountriesWithCities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetAllCountriesWithCitiesResponse" message="tns:IQueriesService_GetAllCountriesWithCities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRatesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetRatesList" message="tns:IQueriesService_GetRatesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetRatesListResponse" message="tns:IQueriesService_GetRatesList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourceNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetCourceNames" message="tns:IQueriesService_GetCourceNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetCourceNamesResponse" message="tns:IQueriesService_GetCourceNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchoolNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQueriesService/GetSchoolNames" message="tns:IQueriesService_GetSchoolNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQueriesService/GetSchoolNamesResponse" message="tns:IQueriesService_GetSchoolNames_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IQueriesService" type="tns:IQueriesService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IQueriesService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CurrentUserName">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/CurrentUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllClients">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetAllClients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientForEdit">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetClientForEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientForView">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetClientForView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderCreationData">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetOrderCreationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderEditData">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetOrderEditData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AirlineTicketForView">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/AirlineTicketForView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AirlineTicketForEdit">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/AirlineTicketForEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContractForView">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/ContractForView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContractForEdit">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/ContractForEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProposals">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetAllProposals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProposalForEdit">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetProposalForEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountries">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetAllCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryForEdit">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetCountryForEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCountriesWithCities">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetAllCountriesWithCities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRatesList">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetRatesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourceNames">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetCourceNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchoolNames">
+      <soap:operation soapAction="http://tempuri.org/IQueriesService/GetSchoolNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QueriesService">
+    <wsdl:port name="BasicHttpBinding_IQueriesService" binding="tns:BasicHttpBinding_IQueriesService">
+      <soap:address location="http://localhost:8000/SautomServices/QueriesService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

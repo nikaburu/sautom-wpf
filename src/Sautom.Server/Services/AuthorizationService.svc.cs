@@ -1,4 +1,5 @@
 ﻿using System.ServiceModel;
+using AutoMapper;
 using Sautom.Queries;
 using Sautom.Server.Interfaces;
 using Sautom.Server.TransportDto;
@@ -13,16 +14,18 @@ namespace Sautom.Server.Services
 
 	    #region Constructors
 
-	    public AuthorizationService(IAuthorizationFinder authorizationFinder, Sautom.Services.AuthorizationService authorizationService)
+	    public AuthorizationService(IMapper mapper, IAuthorizationFinder authorizationFinder, Sautom.Services.AuthorizationService authorizationService)
         {
             _authorizationService = authorizationService;
-            AuthorizationFinder = authorizationFinder;
+		    Mapper = mapper;
+		    AuthorizationFinder = authorizationFinder;
         }
 
 	    #endregion
 
 	    #region Properties
 
+	    public IMapper Mapper { get; set; }
 	    public IAuthorizationFinder AuthorizationFinder { get; set; }
 
 	    #endregion
@@ -31,7 +34,7 @@ namespace Sautom.Server.Services
 
 	    public AunthorizationCredentialsDtoOutput GetCredentials(string name, string password)
         {
-            return AutoMapper.Mapper.Map<AunthorizationCredentialsDtoOutput>(AuthorizationFinder.GetCredentials(name, password));
+            return Mapper.Map<AunthorizationCredentialsDtoOutput>(AuthorizationFinder.GetCredentials(name, password));
         }
 
 	    public bool ChangePassword(string name, string password, string newPassword)

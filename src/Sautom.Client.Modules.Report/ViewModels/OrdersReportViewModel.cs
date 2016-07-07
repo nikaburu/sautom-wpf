@@ -1,5 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using AutoMapper;
+using Microsoft.Practices.Unity;
 using Prism.Mvvm;
 using Prism.Regions;
 using Sautom.Client.Comunication.ReportService;
@@ -13,11 +15,11 @@ namespace Sautom.Client.Modules.Report.ViewModels
 	{
 	    #region Constructor
 
-	    public OrdersReportViewModel(IRegionManager regionManager, ServiceFactory serviceFactory)
+	    public OrdersReportViewModel([Dependency("Sautom.Client.Modules.Report.Mapper")]IMapper mapper, IRegionManager regionManager, ServiceFactory serviceFactory)
         {
             RegionManager = regionManager;
             
-            BuilderViewModel = new OrderQueryBuilderViewModel(new RequestOrderReportsCommand(this, serviceFactory.GetReportesService()));
+            BuilderViewModel = new OrderQueryBuilderViewModel(new RequestOrderReportsCommand(mapper, this, serviceFactory.GetReportesService()));
         }
 
 	    #endregion

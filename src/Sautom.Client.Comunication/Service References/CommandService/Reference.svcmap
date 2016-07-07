@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e7edec7d-5d30-49e0-bf89-1663a7e0b394" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/SautomServices/CommandService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CommandService.xsd" MetadataType="Schema" ID="4ea5249e-2b03-4b95-8c63-2b66b8f96203" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommandService?xsd=xsd3" />
+    <MetadataFile FileName="CommandService1.xsd" MetadataType="Schema" ID="438be819-d1f1-4346-a1f4-71bad6167c02" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommandService?xsd=xsd1" />
+    <MetadataFile FileName="CommandService.wsdl" MetadataType="Wsdl" ID="4ca10bff-9151-4376-bb1d-cbb79ea20652" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommandService?wsdl" />
+    <MetadataFile FileName="CommandService.disco" MetadataType="Disco" ID="59c10ae9-3778-456a-ba53-8fd0c1dd5bcf" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommandService?disco" />
+    <MetadataFile FileName="CommandService2.xsd" MetadataType="Schema" ID="2a914906-dc12-4506-aec3-345bfd245883" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommandService?xsd=xsd0" />
+    <MetadataFile FileName="CommandService3.xsd" MetadataType="Schema" ID="974a4ce2-1bd8-4ae9-8225-3d5bf26bf91b" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommandService?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

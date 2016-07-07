@@ -27,7 +27,44 @@ namespace Sautom.Client.Modules.Client
 
 	    public void Initialize()
         {
-            _container.RegisterType<object, ClientIndex>(PathProvider.ClientIndex);
+			MapperConfiguration config = new MapperConfiguration(cfg =>
+			{
+				cfg.CreateMap<AirlineTicketEditDtoOutput, AirlineTicketViewModel>();
+				cfg.CreateMap<AirlineTicketViewModel, AirlineTicketEditDtoInput>();
+
+				cfg.CreateMap<OrderEditorViewModel, OrderEditDtoInput>()
+					.ForMember(d => d.IntensityId, o => o.ResolveUsing(v => v.Intensity.Id))
+					.ForMember(d => d.HouseTypeId, o => o.ResolveUsing(v => v.HouseType.Id))
+					.ForMember(d => d.ManagerId, o => o.ResolveUsing(v => v.SelectedManager.Id))
+					.ForMember(d => d.ProposalId, o => o.ResolveUsing(v => v.SelectedProposal.Id));
+
+				cfg.CreateMap<ContractEditViewModel, ContractEditDtoInput>();
+				cfg.CreateMap<RateItemDtoOutput, RateItemDtoInput>();
+				cfg.CreateMap<ContractEditDtoOutput, ContractEditViewModel>();
+				cfg.CreateMap<ContractViewDtoOutput, ContractViewModel>();
+
+				cfg.CreateMap<OrderEditorViewModel, OrderEditDtoInput>()
+					.ForMember(d => d.IntensityId, o => o.ResolveUsing(v => v.Intensity.Id))
+					.ForMember(d => d.HouseTypeId, o => o.ResolveUsing(v => v.HouseType.Id))
+					.ForMember(d => d.ManagerId, o => o.ResolveUsing(v => v.SelectedManager.Id))
+					.ForMember(d => d.ProposalId, o => o.ResolveUsing(v => v.SelectedProposal.Id));
+
+				cfg.CreateMap<ClientViewDtoOutput, ClientDetailsViewModel>()
+					.ForMember(foo => foo.NameRu,
+						foo => foo.ResolveUsing(bar => bar.LastName + " " + bar.FirstName + " " + bar.MiddleName));
+				cfg.CreateMap<OrderItemDtoOutput, OrderEditDtoInput>()
+					.ForMember(d => d.EmbassyDocs, o => o.ResolveUsing(v => v.Docs));
+
+				cfg.CreateMap<ClientEditDtoOutput, ClientInfoEditorViewModel>();
+				cfg.CreateMap<ClientItemDtoOutput, ClientItemModel>();
+
+				cfg.CreateMap<ClientInfoEditorViewModel, ClientEditDtoInput>();
+
+
+			});
+			_container.RegisterInstance("Sautom.Client.Modules.Client.Mapper", config.CreateMapper());
+
+			_container.RegisterType<object, ClientIndex>(PathProvider.ClientIndex);
             _container.RegisterType<object, ClientDetails>(PathProvider.ClientDetails);
             _container.RegisterType<object, ClientEdit>(PathProvider.ClientEdit);
             _container.RegisterType<object, ModuleTaskButton>(PathProvider.ClientTaskButton);
@@ -38,46 +75,8 @@ namespace Sautom.Client.Modules.Client
             _container.RegisterType<object, ClientFileList>(PathProvider.ClientFileList);
             _container.RegisterType<object, EditOrderAdvanced>(PathProvider.EditOrderAdvanced);
             
-            
             _regionManager.RequestNavigate(RegionProvider.TaskButtonRegion, PathProvider.ClientTaskButton);
-            _regionManager.RequestNavigate(RegionProvider.MainRegion, PathProvider.ClientIndex);
-
-	        MapperConfiguration config = new MapperConfiguration(cfg =>
-	        {
-		        cfg.CreateMap<AirlineTicketEditDtoOutput, AirlineTicketViewModel>();
-		        cfg.CreateMap<AirlineTicketViewModel, AirlineTicketEditDtoInput>();
-
-		        cfg.CreateMap<OrderEditorViewModel, OrderEditDtoInput>()
-			        .ForMember(d => d.IntensityId, o => o.ResolveUsing(v => v.Intensity.Id))
-			        .ForMember(d => d.HouseTypeId, o => o.ResolveUsing(v => v.HouseType.Id))
-			        .ForMember(d => d.ManagerId, o => o.ResolveUsing(v => v.SelectedManager.Id))
-			        .ForMember(d => d.ProposalId, o => o.ResolveUsing(v => v.SelectedProposal.Id));
-
-		        cfg.CreateMap<ContractEditViewModel, ContractEditDtoInput>();
-		        cfg.CreateMap<RateItemDtoOutput, RateItemDtoInput>();
-		        cfg.CreateMap<ContractEditDtoOutput, ContractEditViewModel>();
-		        cfg.CreateMap<ContractViewDtoOutput, ContractViewModel>();
-
-		        cfg.CreateMap<OrderEditorViewModel, OrderEditDtoInput>()
-			        .ForMember(d => d.IntensityId, o => o.ResolveUsing(v => v.Intensity.Id))
-			        .ForMember(d => d.HouseTypeId, o => o.ResolveUsing(v => v.HouseType.Id))
-			        .ForMember(d => d.ManagerId, o => o.ResolveUsing(v => v.SelectedManager.Id))
-			        .ForMember(d => d.ProposalId, o => o.ResolveUsing(v => v.SelectedProposal.Id));
-
-		        cfg.CreateMap<ClientViewDtoOutput, ClientDetailsViewModel>()
-			        .ForMember(foo => foo.NameRu,
-				        foo => foo.ResolveUsing(bar => bar.LastName + " " + bar.FirstName + " " + bar.MiddleName));
-		        cfg.CreateMap<OrderItemDtoOutput, OrderEditDtoInput>()
-			        .ForMember(d => d.EmbassyDocs, o => o.ResolveUsing(v => v.Docs));
-
-				cfg.CreateMap<ClientEditDtoOutput, ClientInfoEditorViewModel>();
-				cfg.CreateMap<ClientItemDtoOutput, ClientItemModel>();
-
-				cfg.CreateMap<ClientInfoEditorViewModel, ClientEditDtoInput>();
-
-
-			});
-			_container.RegisterInstance("Sautom.Client.Modules.Client.Mapper", config.CreateMapper());
+			_regionManager.RequestNavigate(RegionProvider.MainRegion, PathProvider.ClientIndex);
 		}
 
 	    #endregion

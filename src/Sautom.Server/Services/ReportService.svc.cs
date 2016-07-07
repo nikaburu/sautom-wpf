@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
+using AutoMapper;
 using Sautom.Queries;
 using Sautom.Queries.ReportOptimizedDto;
 using Sautom.Server.Interfaces;
@@ -13,15 +14,17 @@ namespace Sautom.Server.Services
     {
 	    #region Constructors
 
-	    public ReportService(IReportFinder reportFinder)
-        {
-            ReportFinder = reportFinder;
-        }
+	    public ReportService(IMapper mapper, IReportFinder reportFinder)
+	    {
+		    Mapper = mapper;
+		    ReportFinder = reportFinder;
+	    }
 
 	    #endregion
 
 	    #region Properties
 
+	    public IMapper Mapper { get; set; }
 	    public IReportFinder ReportFinder { get; set; }
 
 	    #endregion
@@ -30,8 +33,8 @@ namespace Sautom.Server.Services
 
 	    public List<OrderReportDtoReport> OrderReport(OrderReportDtoReport standard)
         {
-            OrderReportDto input = AutoMapper.Mapper.Map<OrderReportDto>(standard);
-            return AutoMapper.Mapper.Map<List<OrderReportDtoReport>>(ReportFinder.OrderReport(input));
+            OrderReportDto input = Mapper.Map<OrderReportDto>(standard);
+            return Mapper.Map<List<OrderReportDtoReport>>(ReportFinder.OrderReport(input));
         }
 
 	    #endregion

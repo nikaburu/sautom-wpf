@@ -1,7 +1,10 @@
-﻿using Microsoft.Practices.Unity;
+﻿using AutoMapper;
+using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Regions;
 using Sautom.Client.Comunication;
+using Sautom.Client.Comunication.ReportService;
+using Sautom.Client.Modules.Report.Controls.ViewModels;
 using Sautom.Client.Modules.Report.Views;
 
 namespace Sautom.Client.Modules.Report
@@ -21,7 +24,13 @@ namespace Sautom.Client.Modules.Report
 
 	    public void Initialize()
         {
-            _container.RegisterType<object, ReportIndex>(PathProvider.ReportIndex);
+			MapperConfiguration config = new MapperConfiguration(cfg =>
+			{
+				cfg.CreateMap<OrderQueryBuilderViewModel, OrderReportDtoReport>();
+			});
+			_container.RegisterInstance("Sautom.Client.Modules.Report.Mapper", config.CreateMapper());
+
+			_container.RegisterType<object, ReportIndex>(PathProvider.ReportIndex);
             _container.RegisterType<object, OrdersReport>(PathProvider.OrdersReport);
             _container.RegisterType<object, ModuleTaskButton>(PathProvider.ReportTaskButton);
 

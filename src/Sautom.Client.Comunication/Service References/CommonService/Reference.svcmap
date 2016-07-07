@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6047839a-8064-4d04-8031-43d96ec8f309" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/SautomServices/CommonService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CommonService.xsd" MetadataType="Schema" ID="0b87c284-0e98-4d5c-843d-a1b8495c42ff" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommonService?xsd=xsd1" />
+    <MetadataFile FileName="CommonService.disco" MetadataType="Disco" ID="203babfe-3059-4a28-bd11-d0edfdd74d65" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommonService?disco" />
+    <MetadataFile FileName="CommonService1.xsd" MetadataType="Schema" ID="930badf6-bd5f-4e34-88e5-ab74a3d27775" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommonService?xsd=xsd0" />
+    <MetadataFile FileName="CommonService2.xsd" MetadataType="Schema" ID="467d4d5d-353e-4da4-bd09-2628cfb35180" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommonService?xsd=xsd3" />
+    <MetadataFile FileName="CommonService.wsdl" MetadataType="Wsdl" ID="f9f31f71-9d62-471b-9d51-6aace2e92edf" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommonService?wsdl" />
+    <MetadataFile FileName="CommonService3.xsd" MetadataType="Schema" ID="c939ce74-0882-438e-a9eb-106b27aa2bd0" SourceId="1" SourceUrl="http://localhost:8000/SautomServices/CommonService?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

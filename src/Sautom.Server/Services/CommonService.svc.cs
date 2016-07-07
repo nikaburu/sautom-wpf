@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
+using AutoMapper;
 using Sautom.Queries;
 using Sautom.Server.Interfaces;
 using Sautom.Server.TransportDto;
@@ -11,15 +12,17 @@ namespace Sautom.Server.Services
     {
 	    #region Constructors
 
-	    public CommonService(ICommonFinder commonFinder)
-        {
-            CommonFinder = commonFinder;
-        }
+	    public CommonService(IMapper mapper, ICommonFinder commonFinder)
+	    {
+		    Mapper = mapper;
+		    CommonFinder = commonFinder;
+	    }
 
 	    #endregion
 
 	    #region Properties
 
+	    public IMapper Mapper { get; set; }
 	    public ICommonFinder CommonFinder { get; set; }
 
 	    #endregion
@@ -28,7 +31,7 @@ namespace Sautom.Server.Services
 
 	    public ICollection<EventNortificationOutput> NortificationList()
         {
-            return AutoMapper.Mapper.Map<ICollection<EventNortificationOutput>>(CommonFinder.NortificationList());
+            return Mapper.Map<ICollection<EventNortificationOutput>>(CommonFinder.NortificationList());
         }
 
 	    #endregion

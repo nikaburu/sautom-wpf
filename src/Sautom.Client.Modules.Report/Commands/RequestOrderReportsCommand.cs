@@ -12,12 +12,14 @@ namespace Sautom.Client.Modules.Report.Commands
 {
     class RequestOrderReportsCommand : CommandBase
     {
-	    public RequestOrderReportsCommand(OrdersReportViewModel viewModel, IReportService reportesService)
+	    public RequestOrderReportsCommand(IMapper mapper, OrdersReportViewModel viewModel, IReportService reportesService)
         {
-            ViewModel = viewModel;
+		    Mapper = mapper;
+		    ViewModel = viewModel;
             ReportesService = reportesService;
         }
 
+	    public IMapper Mapper { get; set; }
 	    private OrdersReportViewModel ViewModel { get; }
 	    private IReportService ReportesService { get; }
 
@@ -25,7 +27,7 @@ namespace Sautom.Client.Modules.Report.Commands
 
 	    protected override void Execute()
         {
-           // Mapper.CreateMap<OrderQueryBuilderViewModel, OrderReportDtoReport>();
+            
             var input = Mapper.Map<OrderReportDtoReport>(ViewModel.BuilderViewModel);
             var uiDispather = Dispatcher.CurrentDispatcher;
             new Thread(() =>

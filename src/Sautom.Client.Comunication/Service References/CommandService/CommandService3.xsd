@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Sautom.Server.TransportDto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Sautom.Server.TransportDto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/SautomServices/CommandService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:8000/SautomServices/CommandService?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ProposalEditDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CityId" type="ser:guid" />
+      <xs:element minOccurs="0" name="CourseName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CuratorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HouseTypes" nillable="true" type="q1:ArrayOfguid" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Intensities" nillable="true" type="q2:ArrayOfguid" />
+      <xs:element minOccurs="0" name="IsGroupType" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SchoolName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProposalEditDtoInput" nillable="true" type="tns:ProposalEditDtoInput" />
+  <xs:complexType name="OrderEditDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmbassyDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="EmbassyDocs" nillable="true" type="q3:ArrayOfguid" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HouseTypeId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IntensityId" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsEmbassyChecked" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ManagerId" type="ser:guid" />
+      <xs:element minOccurs="0" name="ProposalId" type="ser:guid" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="VisaDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderEditDtoInput" nillable="true" type="tns:OrderEditDtoInput" />
+  <xs:complexType name="ClientEditDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameLat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderInfo" nillable="true" type="tns:OrderEditDtoInput" />
+      <xs:element minOccurs="0" name="ParentAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentPassportInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportByDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PassportByWhom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportFromDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PassportInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonalNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneFirst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneSecond" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientEditDtoInput" nillable="true" type="tns:ClientEditDtoInput" />
+  <xs:complexType name="CounrtyEditDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cities" nillable="true" type="tns:ArrayOfCityItemDtoInput" />
+      <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbassyDocuments" nillable="true" type="tns:ArrayOfEmbassyDocumentItemDtoInput" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CounrtyEditDtoInput" nillable="true" type="tns:CounrtyEditDtoInput" />
+  <xs:complexType name="ArrayOfCityItemDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CityItemDtoInput" nillable="true" type="tns:CityItemDtoInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCityItemDtoInput" nillable="true" type="tns:ArrayOfCityItemDtoInput" />
+  <xs:complexType name="CityItemDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CityItemDtoInput" nillable="true" type="tns:CityItemDtoInput" />
+  <xs:complexType name="ArrayOfEmbassyDocumentItemDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmbassyDocumentItemDtoInput" nillable="true" type="tns:EmbassyDocumentItemDtoInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmbassyDocumentItemDtoInput" nillable="true" type="tns:ArrayOfEmbassyDocumentItemDtoInput" />
+  <xs:complexType name="EmbassyDocumentItemDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="IsArchival" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmbassyDocumentItemDtoInput" nillable="true" type="tns:EmbassyDocumentItemDtoInput" />
+  <xs:complexType name="RateItemDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="RateValue" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RateItemDtoInput" nillable="true" type="tns:RateItemDtoInput" />
+  <xs:complexType name="ArrayOfOrderEditDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderEditDtoInput" nillable="true" type="tns:OrderEditDtoInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderEditDtoInput" nillable="true" type="tns:ArrayOfOrderEditDtoInput" />
+  <xs:complexType name="ContractEditDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConsultingActDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ConsultingDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ConsultingHours" type="xs:float" />
+      <xs:element minOccurs="0" name="ConsultingNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConsultingRate" nillable="true" type="tns:RateItemDtoInput" />
+      <xs:element minOccurs="0" name="ConsultingSum" type="xs:float" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="InvoiceDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceSum" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderId" type="ser:guid" />
+      <xs:element minOccurs="0" name="WorkshopActDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WorkshopDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WorkshopHours" type="xs:float" />
+      <xs:element minOccurs="0" name="WorkshopNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkshopRate" nillable="true" type="tns:RateItemDtoInput" />
+      <xs:element minOccurs="0" name="WorkshopSum" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContractEditDtoInput" nillable="true" type="tns:ContractEditDtoInput" />
+  <xs:complexType name="AirlineTicketEditDtoInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArrivalCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArrivalDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BookingDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BookingExpireDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DepartureCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="OrderId" type="ser:guid" />
+      <xs:element minOccurs="0" name="RedemptionDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AirlineTicketEditDtoInput" nillable="true" type="tns:AirlineTicketEditDtoInput" />
+</xs:schema>
