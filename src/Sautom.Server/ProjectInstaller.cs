@@ -12,7 +12,7 @@ namespace Sautom.Server
 	    public ProjectInstaller()
         {
 		    ServiceProcessInstaller process = new ServiceProcessInstaller {Account = ServiceAccount.LocalSystem};
-		    ServiceInstaller service = new ServiceInstaller {ServiceName = "WCFWindowsHostService"};
+		    ServiceInstaller service = new ServiceInstaller {ServiceName = "SautomServerWcfHost" };
 
 		    Installers.Add(process);
             Installers.Add(service);

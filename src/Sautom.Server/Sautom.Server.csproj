@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="InjectedServiceHost.cs" />
     <Compile Include="Interfaces\IAuthorizationService.cs" />
     <Compile Include="Interfaces\ICommandService.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Mapper\FileService.cs" />
     <Compile Include="Mapper\QueryService.cs" />
     <Compile Include="Mapper\ReportService.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -144,6 +146,7 @@
     <None Include="_Deployment\PreBuild.cmd" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="InitializeRights.cmd" />
     <Content Include="Services\AuthorizationService.svc" />
     <Content Include="Services\CommandService.svc" />
     <Content Include="Services\CommonService.svc" />
@@ -185,10 +188,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>"$(ProjectDir)_Deployment\PreBuild.cmd" "$(TargetPath)"</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>"$(ProjectDir)_Deployment\PostBuild.cmd" "$(TargetPath)"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

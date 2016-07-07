@@ -130,7 +130,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Repositories.cs</LastGenOutput>
     </None>
-    <None Include="Templates\clientTemplate.docx" />
+    <Content Include="Templates\clientTemplate.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sautom.Domain\Sautom.Domain.csproj">
@@ -151,9 +153,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Templates\consultingGroupTemplate.docx" />
-    <Content Include="Templates\consultingTemplate.docx" />
-    <Content Include="Templates\workshopTemplate.docx" />
+    <Content Include="Templates\consultingGroupTemplate.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\consultingTemplate.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\workshopTemplate.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

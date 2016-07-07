@@ -1,7 +1,7 @@
 @ECHO OFF
 
 SET TargetPath=%~1
-SET SvcName=WCFWindowsHostService
+SET SvcName=SautomServerWcfHost
 
 SETLOCAL ENABLEDELAYEDEXPANSION
 
