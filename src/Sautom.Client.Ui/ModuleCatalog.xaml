@@ -1,0 +1,30 @@
+﻿<modularity:ModuleCatalog xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:modularity="clr-namespace:Prism.Modularity;assembly=Prism.Wpf">
+
+	<modularity:ModuleInfo Ref="Sautom.Client.Modules.Proposal.dll"
+	                       ModuleName="Sautom.Client.Modules.Proposal"
+	                       ModuleType="Sautom.Client.Modules.Proposal.ModuleInit, Sautom.Client.Modules.Proposal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+	                       InitializationMode="OnDemand" />
+
+	<modularity:ModuleInfo Ref="Sautom.Client.Modules.Client.dll"
+	                       ModuleName="Sautom.Client.Modules.Client"
+	                       ModuleType="Sautom.Client.Modules.Client.ModuleInit, Sautom.Client.Modules.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+	                       InitializationMode="OnDemand" />
+
+	<modularity:ModuleInfo Ref="Sautom.Client.Modules.EventNortification.dll"
+	                       ModuleName="Sautom.Client.Modules.EventNortification"
+	                       ModuleType="Sautom.Client.Modules.EventNortification.ModuleInit, Sautom.Client.Modules.EventNortification, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+	                       InitializationMode="OnDemand" />
+
+	<modularity:ModuleInfo Ref="Sautom.Client.Modules.Report.dll"
+	                       ModuleName="Sautom.Client.Modules.Report"
+	                       ModuleType="Sautom.Client.Modules.Report.ModuleInit, Sautom.Client.Modules.Report, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+	                       InitializationMode="OnDemand" />
+
+	<modularity:ModuleInfo Ref="Sautom.Client.Modules.Authorization.dll"
+	                       ModuleName="Sautom.Client.Modules.Authorization"
+	                       ModuleType="Sautom.Client.Modules.Authorization.ModuleInit, Sautom.Client.Modules.Authorization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+	                       InitializationMode="WhenAvailable" />
+
+</modularity:ModuleCatalog>

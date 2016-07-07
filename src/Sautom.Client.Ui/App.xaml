@@ -1,0 +1,27 @@
+﻿<Application x:Class="Sautom.Client.Ui.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/themes/WhistlerBlue.xaml" />
+				<ResourceDictionary Source="/Themes/TaskButton/Style.xaml" />
+				<ResourceDictionary Source="/Themes/ModalDialogPopup/Style.xaml" />
+				<ResourceDictionary Source="/Themes/RegionBorderControl/Style.xaml" />
+				<ResourceDictionary Source="/Themes/Ribbon/Style.xaml" />
+				<ResourceDictionary Source="/Themes/DatePicker/Style.xaml" />
+				<ResourceDictionary Source="/Themes/CommonStyles.xaml" />
+				<!--<ResourceDictionary Source="/PresentationFramework.Royale;component/themes/Royale.NormalColor.xaml"/>-->
+				<!--<ResourceDictionary Source="/PresentationFramework.Classic;component/themes/Classic.xaml"/>-->
+
+				<!--<ResourceDictionary Source="/PresentationFramework.Aero;component/themes/Aero.NormalColor.xaml"/>-->
+				<!-- <ResourceDictionary Source="/PresentationFramework.Classic;component/themes/Classic.xaml"/>
+                <ResourceDictionary Source="/PresentationFramework.Royale;component/themes/Royale.NormalColor.xaml"/>
+                <ResourceDictionary Source="/PresentationFramework.Luna.Homestead;component/themes/Luna.Homestead.xaml"/>
+                <ResourceDictionary Source="/PresentationFramework.Luna.Metallic;component/themes/Luna.Metallic.xaml"/>
+                <ResourceDictionary Source="/PresentationFramework.Zune;component/themes/Zune.NormalColor.xaml"/>-->
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>

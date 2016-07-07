@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Sautom.Client.Modules.Report.Controls.OrderQueryBuilder"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:res="clr-namespace:Sautom.Client.Modules.Report.Properties" mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+	<StackPanel>
+
+		<Label Content="{Binding Source={x:Static res:Resources.Label_StartDate}}" />
+		<DatePicker SelectedDate="{Binding StartDate, UpdateSourceTrigger=PropertyChanged}"
+		            DisplayDateEnd="{Binding EndDate}" />
+
+		<Label Content="{Binding Source={x:Static res:Resources.Label_EndDate}}" />
+		<DatePicker SelectedDate="{Binding EndDate, UpdateSourceTrigger=PropertyChanged}"
+		            DisplayDateStart="{Binding StartDate}" />
+
+		<Label Content="{Binding Source={x:Static res:Resources.Label_ClientName}}" />
+		<TextBox Text="{Binding ClientName}" />
+
+		<Label Content="{Binding Source={x:Static res:Resources.Label_SchoolName}}" />
+		<TextBox Text="{Binding SchoolName}" />
+
+		<Label Content="{Binding Source={x:Static res:Resources.Label_CourceName}}" />
+		<TextBox Text="{Binding CourceName}" />
+
+		<Button Command="{Binding DoSearch}" Content="{Binding Source={x:Static res:Resources.Btn_Proccess}}" />
+	</StackPanel>
+</UserControl>

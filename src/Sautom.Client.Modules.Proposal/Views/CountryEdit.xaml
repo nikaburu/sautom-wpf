@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="Sautom.Client.Modules.Proposal.Views.CountryEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:l="clr-namespace:Sautom.Client.Comunication.Converters;assembly=Sautom.Client.Comunication"
+             mc:Ignorable="d"
+             xmlns:i18N="clr-namespace:Sautom.Client.Modules.Proposal.Properties"
+             d:DesignHeight="300" d:DesignWidth="300">
+	<UserControl.Resources>
+		<l:GuidToVisibilityConverter x:Key="GuidToVisibilityConverter" />
+		<l:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+	</UserControl.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="150*" />
+			<ColumnDefinition Width="150*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30" />
+			<RowDefinition Height="250*" />
+		</Grid.RowDefinitions>
+		<Menu Grid.ColumnSpan="2">
+			<MenuItem Header="{Binding Source={x:Static i18N:Resources.Btn_Save}}" Command="{Binding SaveCountryCommand}"
+			          CommandParameter="true" />
+			<MenuItem Header="{Binding Source={x:Static i18N:Resources.Btn_Cancel}}" Command="{Binding SaveCountryCommand}"
+			          CommandParameter="false" />
+		</Menu>
+		<StackPanel Grid.Row="1">
+			<Label Content="{Binding Source={x:Static i18N:Resources.Label_Country}}" />
+			<TextBox Text="{Binding CountryName}" />
+
+			<Border BorderThickness="2">
+				<StackPanel>
+					<Label Content="{Binding Source={x:Static i18N:Resources.Label_Cities}}" />
+					<DockPanel>
+						<TextBox MinWidth="150" Name="cityTextbox" DockPanel.Dock="Left" HorizontalAlignment="Left" />
+						<Button Content="{Binding Source={x:Static i18N:Resources.Btn_AddCity}}" Command="{Binding AddCityCommand}"
+						        CommandParameter="{Binding ElementName=cityTextbox, Path=Text}" DockPanel.Dock="Right"
+						        HorizontalAlignment="Right" Click="AddCityButtonClear_Click" />
+					</DockPanel>
+					<ListBox ItemsSource="{Binding Cities}">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<DockPanel>
+									<TextBox BorderThickness="0" Text="{Binding CityName, UpdateSourceTrigger=PropertyChanged}"
+									         DockPanel.Dock="Left" HorizontalAlignment="Left" />
+									<Button Width="26" Height="26" Content="X" DockPanel.Dock="Right" HorizontalAlignment="Right"
+									        Visibility="{Binding Id, Converter={StaticResource GuidToVisibilityConverter}}"
+									        Command="{Binding Path=DataContext.RemoveCityFromList, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+									        CommandParameter="{Binding CityName}" />
+								</DockPanel>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+				</StackPanel>
+			</Border>
+
+			<Border BorderThickness="2">
+				<StackPanel>
+					<Label Content="{Binding Source={x:Static i18N:Resources.Label_Documents}}" />
+					<DockPanel>
+						<TextBox MinWidth="150" Name="documentTextbox" DockPanel.Dock="Left" HorizontalAlignment="Left" />
+						<Button Content="{Binding Source={x:Static i18N:Resources.Btn_AddDocument}}" DockPanel.Dock="Right"
+						        HorizontalAlignment="Right"
+						        Command="{Binding AddDocumentCommand}"
+						        CommandParameter="{Binding ElementName=documentTextbox, Path=Text}" Click="AddDocumentButtonClear_Click" />
+					</DockPanel>
+					<ListBox ItemsSource="{Binding EmbassyDocuments}">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<DockPanel>
+									<TextBox BorderThickness="0" Text="{Binding DocumentName, UpdateSourceTrigger=PropertyChanged}"
+									         DockPanel.Dock="Left" HorizontalAlignment="Left" />
+									<CheckBox IsChecked="{Binding IsArchival, Converter={StaticResource InverseBooleanConverter}}"
+									          DockPanel.Dock="Right" HorizontalAlignment="Right" />
+								</DockPanel>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+				</StackPanel>
+			</Border>
+		</StackPanel>
+	</Grid>
+</UserControl>

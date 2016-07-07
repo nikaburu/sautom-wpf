@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Sautom.Client.Modules.Report.Views.OrdersReport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:Sautom.Client.Modules.Report.Controls"
+             mc:Ignorable="d">
+	<StackPanel>
+		<controls:OrderQueryBuilder DataContext="{Binding BuilderViewModel}" />
+		<DataGrid ItemsSource="{Binding Records}" SelectionMode="Single" IsReadOnly="True" HeadersVisibility="None"
+		          SelectionUnit="FullRow" CanUserReorderColumns="False"
+		          CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="True"
+		          AlternatingRowBackground="Gainsboro" AlternationCount="2" />
+	</StackPanel>
+</UserControl>

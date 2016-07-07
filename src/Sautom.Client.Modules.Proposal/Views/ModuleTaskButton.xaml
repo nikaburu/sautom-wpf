@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Sautom.Client.Modules.Proposal.Views.ModuleTaskButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i18N="clr-namespace:Sautom.Client.Modules.Proposal.Properties">
+	<RadioButton Command="{Binding ShowModuleViewCommand}"
+	             Content="{Binding Source={x:Static i18N:Resources.Btn_ProposalTask}}"
+	             Template="{DynamicResource TaskButtonTemplate}" IsChecked="{Binding IsChecked}">
+		<RadioButton.Resources>
+			<ImageSource x:Key="Img">..\Images\proposalIcon.png</ImageSource>
+		</RadioButton.Resources>
+	</RadioButton>
+</UserControl>

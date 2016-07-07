@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Sautom.Client.Modules.Report.Views.ModuleTaskButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i18n="clr-namespace:Sautom.Client.Modules.Report.Properties">
+	<RadioButton Command="{Binding ShowModuleViewCommand}"
+	             Content="{Binding Source={x:Static i18n:Resources.Btn_ReportTask}}"
+	             Template="{DynamicResource TaskButtonTemplate}" IsChecked="{Binding IsChecked}">
+		<RadioButton.Resources>
+			<ImageSource x:Key="Img">..\Images\reportsIcon.png</ImageSource>
+		</RadioButton.Resources>
+	</RadioButton>
+</UserControl>

@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="Sautom.Client.Modules.Proposal.Views.ProposalEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+             xmlns:i18N="clr-namespace:Sautom.Client.Modules.Proposal.Properties"
+             xmlns:controls="clr-namespace:Sautom.Client.Modules.Proposal.Controls"
+             d:DesignHeight="300" d:DesignWidth="300">
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="..\Controls\Styles\AutoComplete.Styles.xaml" />
+				<ResourceDictionary Source="Styles\ProposalEditStyle.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</UserControl.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="150*" />
+			<ColumnDefinition Width="30" />
+			<ColumnDefinition Width="150*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30" />
+			<RowDefinition Height="250*" />
+		</Grid.RowDefinitions>
+		<Menu Grid.ColumnSpan="10">
+			<MenuItem Header="{Binding Source={x:Static i18N:Resources.Btn_Save}}" Command="{Binding SaveProposalCommand}"
+			          CommandParameter="true" />
+			<MenuItem Header="{Binding Source={x:Static i18N:Resources.Btn_Cancel}}" Command="{Binding SaveProposalCommand}"
+			          CommandParameter="false" />
+		</Menu>
+		<StackPanel Grid.Row="1">
+			<Label Content="{Binding Source={x:Static i18N:Resources.Label_Country}}" />
+			<ListBox ItemsSource="{Binding Countries}" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding CountryName}" />
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+
+			<Label Content="{Binding Source={x:Static i18N:Resources.Label_City}}" />
+			<ListBox ItemsSource="{Binding SelectedCountry.Cities}" SelectedItem="{Binding SelectedCity, Mode=TwoWay}">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding CityName}" />
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+
+			<Label Content="{Binding Source={x:Static i18N:Resources.Label_SchoolName}}" />
+			<controls:AutoComplete Text="{Binding SchoolName, UpdateSourceTrigger=PropertyChanged}"
+			                       PatternChanged="{Binding SchoolesComboChanged}"
+			                       Style="{DynamicResource AutoCompleteComboBox}" Delay="200" />
+
+			<Label Content="{Binding Source={x:Static i18N:Resources.Label_CourseName}}" />
+			<controls:AutoComplete Text="{Binding CourseName, UpdateSourceTrigger=PropertyChanged}"
+			                       PatternChanged="{Binding CourcesComboChanged}"
+			                       Style="{DynamicResource AutoCompleteComboBox}" Delay="200" />
+
+			<Label Content="{Binding Source={x:Static i18N:Resources.Label_ProposalType}}" />
+			<RadioButton GroupName="IsGroupType"
+			             Content="{Binding Source={x:Static i18N:Resources.Label_ProposalIndividualType}}"
+			             IsChecked="{Binding IsGroupType, Mode=TwoWay, Converter={StaticResource InverseBooleanConverter}}" />
+			<RadioButton GroupName="IsGroupType" Content="{Binding Source={x:Static i18N:Resources.Label_ProposalGroupType}}"
+			             IsChecked="{Binding IsGroupType, Mode=TwoWay}" />
+		</StackPanel>
+
+		<StackPanel Grid.Column="2" Grid.Row="1">
+			<Label Content="{Binding Source={x:Static i18N:Resources.Label_Intensity}}" />
+			<ListBox ItemsSource="{Binding IntensivityList}" />
+
+			<Label Content="{Binding Source={x:Static i18N:Resources.Label_HousingTypes}}" />
+			<ListBox ItemsSource="{Binding HouseTypeList}" />
+
+			<StackPanel Visibility="{Binding IsGroupType, Converter={StaticResource ResourceKey=BoolToVisibilityConverter}}">
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_StartDate}}" />
+				<DatePicker SelectedDate="{Binding StartDate, UpdateSourceTrigger=PropertyChanged}"
+				            DisplayDateEnd="{Binding EndDate}" />
+
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_EndDate}}" />
+				<DatePicker SelectedDate="{Binding EndDate, UpdateSourceTrigger=PropertyChanged}"
+				            DisplayDateStart="{Binding StartDate}" />
+
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_CuratorName}}" />
+				<TextBox Text="{Binding CuratorName, UpdateSourceTrigger=PropertyChanged}" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

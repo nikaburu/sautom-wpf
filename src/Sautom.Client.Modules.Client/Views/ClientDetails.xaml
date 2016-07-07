@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="Sautom.Client.Modules.Client.Views.ClientDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i18N="clr-namespace:Sautom.Client.Modules.Client.Properties"
+             xmlns:converters="clr-namespace:Sautom.Client.Comunication.Converters;assembly=Sautom.Client.Comunication"
+             xmlns:views="clr-namespace:Sautom.Client.Modules.Client.Views"
+             xmlns:controls="clr-namespace:Sautom.Client.Modules.Client.Controls"
+             xmlns:converters1="clr-namespace:Sautom.Client.Modules.Client.Converters"
+             mc:Ignorable="d"
+             d:DesignHeight="605" d:DesignWidth="984">
+
+	<UserControl.Resources>
+		<converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+		<converters1:IsGroupTypeToTextConverter x:Key="IsGroupTypeToTextConverter" />
+		<Style TargetType="{x:Type TextBlock}">
+			<Setter Property="Foreground" Value="#FF5C26D4" />
+		</Style>
+	</UserControl.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="150*" />
+			<ColumnDefinition Width="150*" />
+			<ColumnDefinition Width="300*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30" />
+			<RowDefinition Height="180*" />
+			<RowDefinition Height="80*" />
+		</Grid.RowDefinitions>
+		<Menu Grid.ColumnSpan="3">
+			<MenuItem Header="{Binding Source={x:Static i18N:Resources.Btn_BackToClients}}" Command="{Binding BackCommand}" />
+			<MenuItem Header="{Binding Source={x:Static i18N:Resources.Btn_EditClients}}" Command="{Binding EditCommand}" />
+			<MenuItem Header="{Binding Source={x:Static i18N:Resources.Btn_AddOrderForClient}}"
+			          Command="{Binding AddOrderCommand}" />
+			<MenuItem Header="{Binding Source={x:Static i18N:Resources.Btn_AirlineTicketView}}"
+			          Command="{Binding AirlineTicketCommand}" />
+			<MenuItem Header="{Binding Source={x:Static i18N:Resources.Btn_ContractView}}" Command="{Binding ContractCommand}" />
+		</Menu>
+		<Border Grid.Row="1" BorderBrush="Azure" BorderThickness="3" Grid.ColumnSpan="2">
+			<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_NameRu}}" />
+				<TextBlock Text="{Binding NameRu}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_NameEn}}" />
+				<TextBlock Text="{Binding NameLat}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_BirthDate}}" />
+				<TextBlock Text="{Binding BirthDate, StringFormat=d}" />
+
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PersonalNumber}}" />
+				<TextBlock Text="{Binding PersonalNumber}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PassportInfo}}" />
+				<TextBlock Text="{Binding PassportInfo}" />
+
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PassportByWhom}}" />
+				<TextBlock Text="{Binding PassportByWhom}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PassportFromDate}}" />
+				<TextBlock Text="{Binding PassportFromDate, StringFormat=d}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PassportByDate}}" />
+				<TextBlock Text="{Binding PassportByDate, StringFormat=d}" />
+
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_Address}}" />
+				<TextBlock Text="{Binding Address}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PhoneFirst}}" />
+				<TextBlock Text="{Binding PhoneFirst}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PhoneSecond}}" />
+				<TextBlock Text="{Binding PhoneSecond}" />
+			</StackPanel>
+		</Border>
+		<StackPanel Grid.Row="1" Grid.Column="1">
+			<StackPanel Visibility="{Binding IsParentSection, Converter={StaticResource ResourceKey=BoolToVisibilityConverter}}">
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_ParentName}}" />
+				<TextBlock Text="{Binding ParentName}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_ParentAddress}}" />
+				<TextBlock Text="{Binding ParentAddress}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_ParentPhone}}" />
+				<TextBlock Text="{Binding ParentPhone}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_ParentPassportInfo}}" />
+				<TextBlock Text="{Binding ParentPassportInfo}" />
+			</StackPanel>
+			<views:ClientFileList DataContext="{Binding ClinetFileListViewModel}" Margin="0,10,0,0" />
+		</StackPanel>
+
+		<StackPanel Grid.Row="2" Grid.ColumnSpan="2">
+			<TextBox Text="{Binding Comment, UpdateSourceTrigger=PropertyChanged}" MinHeight="50" TextWrapping="Wrap"
+			         AcceptsReturn="True" />
+			<ListBox ItemsSource="{Binding Comments}" MaxHeight="100">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<DockPanel>
+							<TextBlock Text="{Binding Date, StringFormat=d}" Margin="0,0,15,0" />
+							<TextBlock Text="{Binding Comment}" Margin="0,0,15,0" />
+							<TextBlock Text="{Binding Manager}" Margin="0,0,15,0" />
+						</DockPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</StackPanel>
+		<Border Grid.Row="1" Grid.Column="2" BorderBrush="Azure" BorderThickness="3">
+			<StackPanel>
+				<ListBox ItemsSource="{Binding Orders}" SelectedItem="{Binding SelectedOrder, Mode=TwoWay}">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="60*" />
+									<ColumnDefinition Width="60*" />
+									<ColumnDefinition Width="60*" />
+								</Grid.ColumnDefinitions>
+								<TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+								           Text="{Binding IsGroupType, Converter={StaticResource IsGroupTypeToTextConverter}}" />
+								<TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+								           Text="{Binding StartDate, StringFormat=d}" />
+								<StackPanel Grid.Column="1" HorizontalAlignment="Left">
+									<TextBlock Text="{Binding SchoolName}" />
+									<TextBlock Text="{Binding CourseName}" />
+								</StackPanel>
+								<StackPanel Grid.Column="2" HorizontalAlignment="Right">
+									<Image Visibility="{Binding IsActive, Converter={StaticResource BoolToVisibilityConverter}}"
+									       VerticalAlignment="Top" HorizontalAlignment="Right" Source="..\Images\bluestar.png" Width="8"
+									       Height="8" />
+									<TextBlock VerticalAlignment="Bottom" Text="{Binding ResponsibleManager}" />
+								</StackPanel>
+							</Grid>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				<controls:OrderViewer DataContext="{Binding SelectedOrderViewModel}" />
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>

@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="Sautom.Client.Modules.Client.Controls.ClientInfoEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i18N="clr-namespace:Sautom.Client.Modules.Client.Properties"
+             xmlns:converters="clr-namespace:Sautom.Client.Comunication.Converters;assembly=Sautom.Client.Comunication"
+             xmlns:Helpers="clr-namespace:Sautom.Client.Comunication.Helpers;assembly=Sautom.Client.Comunication"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+	<UserControl.Resources>
+		<converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+	</UserControl.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="371*" />
+			<ColumnDefinition Width="371*" />
+		</Grid.ColumnDefinitions>
+		<Border BorderBrush="Azure" BorderThickness="3">
+			<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_FirstName}}" />
+				<TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" Helpers:TextBoxMasking.Mask="^[А-Яа-я]+$" />
+				<TextBlock Visibility="{Binding IsFirstNameError, Converter={StaticResource BoolToVisibilityConverter}}"
+				           Text="Поле обязательно" Foreground="Red" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_LastName}}" />
+				<TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" Helpers:TextBoxMasking.Mask="^[А-Яа-я]+$" />
+				<TextBlock Visibility="{Binding IsLastNameError, Converter={StaticResource BoolToVisibilityConverter}}"
+				           Text="Поле обязательно" Foreground="Red" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_MiddleName}}" />
+				<TextBox Text="{Binding MiddleName, UpdateSourceTrigger=PropertyChanged}" Helpers:TextBoxMasking.Mask="^[А-Яа-я]+$" />
+				<TextBlock Visibility="{Binding IsMiddleNameError, Converter={StaticResource BoolToVisibilityConverter}}"
+				           Text="Поле обязательно" Foreground="Red" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_NameEn}}" />
+				<TextBox Text="{Binding NameLat, UpdateSourceTrigger=PropertyChanged}" Helpers:TextBoxMasking.Mask="^[A-Za-z]+$" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_BirthDate}}" />
+				<DatePicker SelectedDate="{Binding BirthDate, UpdateSourceTrigger=PropertyChanged}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PersonalNumber}}" />
+				<TextBox Text="{Binding PersonalNumber, UpdateSourceTrigger=PropertyChanged}"
+				         Helpers:TextBoxMasking.Mask="^[0-9]{0,4}[A-Za-z]{0,2}[0-9]{0,4}$" />
+
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PassportInfo}}" />
+				<TextBox Text="{Binding PassportInfo, UpdateSourceTrigger=PropertyChanged}"
+				         Helpers:TextBoxMasking.Mask="^[A-Za-z]{0,2}[0-9]{0,7}$" />
+
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PassportByWhom}}" />
+				<TextBox Text="{Binding PassportByWhom, UpdateSourceTrigger=PropertyChanged}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PassportFromDate}}" />
+				<DatePicker SelectedDate="{Binding PassportFromDate, UpdateSourceTrigger=PropertyChanged}"
+				            DisplayDateEnd="{Binding PassportByDate}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PassportByDate}}" />
+				<DatePicker SelectedDate="{Binding PassportByDate, UpdateSourceTrigger=PropertyChanged}"
+				            DisplayDateStart="{Binding PassportFromDate}" />
+
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_Address}}" />
+				<TextBox MinHeight="50" TextWrapping="Wrap" AcceptsReturn="True"
+				         Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}"
+				         Helpers:TextBoxMasking.Mask="^[А-Яа-я0-9,()/\s\t\n]+$" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PhoneFirst}}" />
+				<TextBox Text="{Binding PhoneFirst, UpdateSourceTrigger=PropertyChanged}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_PhoneSecond}}" />
+				<TextBox Text="{Binding PhoneSecond, UpdateSourceTrigger=PropertyChanged}" />
+			</StackPanel>
+		</Border>
+		<Border Grid.Column="1" BorderBrush="Azure" BorderThickness="3">
+			<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"
+			            Visibility="{Binding IsParentSection, Converter={StaticResource ResourceKey=BoolToVisibilityConverter}}">
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_ParentName}}" />
+				<TextBox Text="{Binding ParentName, UpdateSourceTrigger=PropertyChanged}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_ParentAddress}}" />
+				<TextBox MinHeight="50" TextWrapping="Wrap" AcceptsReturn="True"
+				         Text="{Binding ParentAddress, UpdateSourceTrigger=PropertyChanged}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_ParentPhone}}" />
+				<TextBox Text="{Binding ParentPhone, UpdateSourceTrigger=PropertyChanged}" />
+				<Label Content="{Binding Source={x:Static i18N:Resources.Label_ParentPassportInfo}}" />
+				<TextBox Text="{Binding ParentPassportInfo, UpdateSourceTrigger=PropertyChanged}" />
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>

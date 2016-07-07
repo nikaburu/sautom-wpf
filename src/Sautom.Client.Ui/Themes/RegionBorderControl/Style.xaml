@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Controls="clr-namespace:Sautom.Client.Ui.Controls">
+	<Style x:Key="RegionBorderControlStyle" TargetType="{x:Type Controls:RegionBorderControl}">
+		<Setter Property="Margin" Value="8,2,2,2" />
+		<Setter Property="BorderBrush" Value="#FF425685" />
+		<Setter Property="BorderThickness" Value="2" />
+		<Setter Property="Foreground" Value="#FFD3E2E8" />
+		<Setter Property="FontWeight" Value="Normal" />
+		<Setter Property="FontSize" Value="12" />
+		<Setter Property="FontFamily" Value="Portable User Interface" />
+		<Setter Property="Background">
+			<Setter.Value>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FFB3B7BA" Offset="0" />
+					<GradientStop Color="#FF60697C" Offset="1" />
+					<GradientStop Color="#FF606F7C" Offset="0.208" />
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

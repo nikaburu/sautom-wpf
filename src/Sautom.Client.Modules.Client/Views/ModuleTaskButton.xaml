@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Sautom.Client.Modules.Client.Views.ModuleTaskButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i18N="clr-namespace:Sautom.Client.Modules.Client.Properties"
+             mc:Ignorable="d">
+	<RadioButton Command="{Binding ShowModuleViewCommand}"
+	             Content="{Binding Source={x:Static i18N:Resources.Btn_ClientTask}}"
+	             Template="{DynamicResource TaskButtonTemplate}" IsChecked="{Binding IsChecked}">
+		<RadioButton.Resources>
+			<ImageSource x:Key="Img">..\Images\clients.png</ImageSource>
+		</RadioButton.Resources>
+	</RadioButton>
+</UserControl>
