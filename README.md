@@ -10,17 +10,15 @@
 5) (+) DDD and CQRS development principles.
 
 *User interface:*
+![user interface](docs/content/user_interface.png)
 
-[image:user_interface.png]
-
-[image:notifications.png]
+![notifications](docs/content/notifications.png)
 
 *The layered project structure:* 
-[image:layers_diagram.png]
+![layers diagram](docs/content/layers_diagram.png)
 
 *Main assemblies diagram:* 
-[image:assembly_diagram.png]
+![assembly diagram](docs/content/assembly_diagram.png)
 
 *Project structure:*
-
-[image:projectstructure.JPG]
+![project structure](docs/content/projectstructure.jpg)
