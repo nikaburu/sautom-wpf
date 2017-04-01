@@ -1,6 +1,8 @@
 # sautom-wpf
 
-Sautom code and architecture example project.
+Sautom code and architecture example project. 
+
+[![Build Status](https://travis-ci.org/nikaburu/sautom-wpf.svg?branch=master)](https://travis-ci.org/nikaburu/sautom-wpf)
 
 _Used technologies:_
 1) EF code first, LINQ to Entities;
